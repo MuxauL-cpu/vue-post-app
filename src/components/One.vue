@@ -47,6 +47,8 @@
       v-model:page="currentPage"
       :length="pageCount"
       :total-visible="$vuetify.breakpoint.mdAndUp ? 5 : 3"
+      prev-icon="mdi-chevron-left"
+      next-icon="mdi-chevron-right"
     />
 
     <!-- Drawer для создания поста -->
@@ -108,8 +110,12 @@
             >
               Сохранить
             </v-btn>
-            <v-btn icon @click="openDeleteModal(selectedPost.id)">
-              <v-icon>mdi-delete</v-icon>
+            <v-btn
+              color="error"
+              :disabled="!selectedPost.title || !selectedPost.body"
+              @click="openDeleteModal(selectedPost.id)"
+            >
+              Удалить
             </v-btn>
           </v-form>
         </v-container>
@@ -128,9 +134,7 @@ import usePosts from "../utils/usePosts";
 
 const {
   posts,
-  error,
   currentPage,
-  postsPerPage,
   createDrawer,
   editDrawer,
   newPost,
@@ -147,7 +151,6 @@ const {
   closeCreateDrawer,
   closeEditDrawer,
   openEditPostDrawer,
-  closeEditPostDrawer,
   saveNewPost,
   saveEditedPost,
 } = usePosts();

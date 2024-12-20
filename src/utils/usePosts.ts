@@ -44,6 +44,7 @@ export default function usePosts() {
       snackbar.value = { show: true, message: "Пост удален успешно" };
     }
     closeDeleteModal();
+    closeEditDrawer();
   };
 
   const pageCount = computed(() => {

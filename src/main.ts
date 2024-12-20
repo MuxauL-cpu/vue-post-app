@@ -6,6 +6,8 @@ import "vuetify/dist/vuetify.min.css";
 
 Vue.use(Vuetify);
 
+import "@mdi/font/css/materialdesignicons.css";
+
 const vuetify = new Vuetify({});
 
 new Vue({
