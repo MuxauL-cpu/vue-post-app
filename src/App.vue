@@ -4,6 +4,7 @@
       app
       color="blue-grey lighten-5"
       :temporary="$vuetify.breakpoint.smAndDown"
+      class="top-nav"
     >
       <v-list>
         <v-list-item v-for="(item, index) in navItems" :key="index">
@@ -55,6 +56,18 @@ const navItems = ref([
 
 .v-list-item:hover {
   background-color: #e3f2fd;
+}
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.v-main {
+  margin-top: 64px;
 }
 
 @media (max-width: 600px) {

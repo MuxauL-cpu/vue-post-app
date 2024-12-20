@@ -5,6 +5,17 @@
       Создать пост
     </v-btn>
 
+    <!-- Мобильные версии: карточки -->
+    <v-row v-if="$vuetify.breakpoint.smAndDown">
+      <v-col v-for="post in paginatedPosts" :key="post.id" cols="12" md="4">
+        <v-card @click="openEditPostDrawer(post)">
+          <v-card-title>{{ post.title }}</v-card-title>
+          <v-card-subtitle>{{ post.body }}</v-card-subtitle>
+        </v-card>
+      </v-col>
+    </v-row>
+
+    <!-- Десктопные версии: таблица -->
     <v-simple-table v-if="$vuetify.breakpoint.mdAndUp">
       <thead>
         <tr>
